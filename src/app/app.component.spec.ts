@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'ngtask-crud-tailwind' title`, () => {
+  it(`should have the 'ngproduct-crud-tailwind' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngtask-crud-tailwind');
+    expect(app.title).toEqual('ngproduct-crud-tailwind');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ngtask-crud-tailwind');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ngproduct-crud-tailwind');
   });
 });
