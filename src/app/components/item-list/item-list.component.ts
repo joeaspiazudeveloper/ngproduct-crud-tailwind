@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Product } from '../../constants/Product';
+import { Product } from '../../models/Product';
 
 @Component({
-  selector: 'app-products-list',
+  selector: 'app-item-list',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.scss'
+  templateUrl: './item-list.component.html',
+  styleUrl: './item-list.component.scss'
 })
-export class ProductsListComponent {
+export class ItemListComponent {
   @Input() products: Product[] = [];
   constructor() { }
   ngOnInit(): void {

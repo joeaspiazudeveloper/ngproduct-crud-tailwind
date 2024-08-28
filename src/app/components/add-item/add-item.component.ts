@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProductsListComponent } from '../products-list/products-list.component';
-import { Product } from '../../constants/Product';
+import { ItemListComponent } from '../item-list/item-list.component';
+import { Product } from '../../models/Product';
 
 @Component({
-  selector: 'app-product-form',
+  selector: 'app-add-item',
   standalone: true,
-  imports: [FormsModule, ProductsListComponent],
-  templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.scss'
+  imports: [FormsModule, ItemListComponent],
+  templateUrl: './add-item.component.html',
+  styleUrl: './add-item.component.scss'
 })
-export class ProductFormComponent implements OnInit {
+export class AddItem implements OnInit {
   products: Product[] = [];
   newProduct: string = '';
   constructor() { }
