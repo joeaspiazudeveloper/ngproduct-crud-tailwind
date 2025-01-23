@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 
@@ -13,19 +13,25 @@ import { Task } from '../../models/Task';
   styleUrl: './add-task.component.scss'
 })
 export class AddTask implements OnInit {
-  tasks: Task[] = [];
-  newTask: string = '';
+  // tasks: Task[] = [];
+  tasks = signal<Task[]>([]);
+
+  // newTask: string = '';
+  newTask = signal('');
+
   constructor() { }
   ngOnInit(): void {
   }
   addTask() {
-    if (this.newTask.trim() !== '') {
+    if (this.newTask().trim() !== '') {
       const newTask: Task = {
-        name: this.newTask,
+        name: this.newTask(),
         completed: false
       };
-      this.tasks.push(newTask);
-      this.newTask = '';
+      // this.tasks.push(newTask);
+      this.tasks.update((tasks) => [...tasks, newTask]);
+      // this.newTask = '';
+      this.newTask.set('');
     }
   }
 }
