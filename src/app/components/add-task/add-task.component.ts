@@ -13,10 +13,7 @@ import { Task } from '../../models/Task';
   styleUrl: './add-task.component.scss'
 })
 export class AddTask implements OnInit {
-  // tasks: Task[] = [];
   tasks = signal<Task[]>([]);
-
-  // newTask: string = '';
   newTask = signal('');
 
   constructor() { }
@@ -28,9 +25,7 @@ export class AddTask implements OnInit {
         name: this.newTask(),
         completed: false
       };
-      // this.tasks.push(newTask);
       this.tasks.update((tasks) => [...tasks, newTask]);
-      // this.newTask = '';
       this.newTask.set('');
     }
   }

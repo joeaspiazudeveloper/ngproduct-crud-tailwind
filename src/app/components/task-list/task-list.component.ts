@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal, WritableSignal } from '@angular/core';
 import { Task } from '../../models/Task';
 
 @Component({
@@ -10,14 +10,15 @@ import { Task } from '../../models/Task';
   styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent {
-  @Input() tasks: Task[] = [];
+  @Input() tasks = signal<Task[]>([]);
+  
   constructor() { }
   ngOnInit(): void {
   }
   removeProduct(task: Task) {
-    const taskIndex = this.tasks.indexOf(task);
+    const taskIndex = this.tasks().indexOf(task);
     if (taskIndex !== -1) {
-      this.tasks.splice(taskIndex, 1);
+      this.tasks().splice(taskIndex, 1);
     }
   }
   toggleCompleted(task: Task) {
