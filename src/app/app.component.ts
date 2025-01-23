@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AddItem } from './components/add-item/add-item.component';
+import { AddTask } from './components/add-task/add-task.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, AddItem],
+  imports: [ NavbarComponent, AddTask],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
